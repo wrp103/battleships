@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This FXML file contains the basic layout of the application. This includes panes and areas
+     of the application that is accessed by the Controller class to add the board and labels.-->
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<!--Main box area for application. It points to the controller class and styles sheet location.-->
+<VBox prefHeight="780.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/10.0.2-internal"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="battleships.Controller" stylesheets="@styles/styles.css">
+
+    <!-- Stack pane places each inner pane on top of one another-->
+    <StackPane>
+        <!--********************Main game screen layout********************-->
+        <AnchorPane VBox.vgrow="ALWAYS">
+            <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="780.0"
+                        prefWidth="1200.0">
+                <!-- Left side of main game screen-->
+                <left>
+                    <!-- Settings for entire left side of screen -->
+                    <!-- Dimensions and alignment-->
+                    <GridPane prefHeight="719.0" prefWidth="600.0" BorderPane.alignment="CENTER" id="leftSide">
+                        <!-- Constraints of grid layout areas-->
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                            <RowConstraints minHeight="10.0" prefHeight="240.0" vgrow="SOMETIMES"/>
+                        </rowConstraints>
+
+                        <!-- Left board area-->
+                        <!-- Board dimensions and alignment-->
+                        <Pane fx:id="leftBoard" prefHeight="446.0" prefWidth="600.0" GridPane.halignment="CENTER"
+                              GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER"
+                              GridPane.vgrow="ALWAYS">
+                            <!-- Board margin-->
+                            <GridPane.margin>
+                                <Insets left="75.0"/>
+                            </GridPane.margin>
+                        </Pane>
+
+                        <!-- Left side header settings-->
+                        <VBox prefHeight="35.0" prefWidth="600.0">
+                            <padding>
+                                <Insets top="4" bottom="5.0"/>
+                            </padding>
+                            <Label id="playerSideHeader" alignment="CENTER" prefHeight="17.0" prefWidth="600.0" text="Player Side"
+                                   VBox.vgrow="ALWAYS">
+                                <font>
+                                    <Font size="20.0"/>
+                                </font>
+                            </Label>
+                        </VBox>
+
+                        <!-- Left side button area-->
+                        <HBox id="buttonArea" alignment="CENTER" prefHeight="252.0" prefWidth="600.0" GridPane.rowIndex="2">
+                            <padding>
+                                <Insets bottom="5.0" top="5.0"/>
+                            </padding>
+
+                            <!-- Start game button-->
+                            <Button fx:id="startGame" disable="true" mnemonicParsing="false"
+                                    onAction="#startGame" text="Start Game">
+                                <HBox.margin>
+                                    <Insets right="5.0"/>
+                                </HBox.margin>
+                            </Button>
+
+                            <!-- Rotate ship button-->
+                            <Button fx:id="rotateShip" mnemonicParsing="false" onAction="#rotate"
+                                    text="Rotate Ship">
+                                <HBox.margin>
+                                    <Insets right="5.0"/>
+                                </HBox.margin>
+                            </Button>
+
+                            <!-- Reset grid button-->
+                            <Button fx:id="resetGrid" mnemonicParsing="false" onAction="#newGame"
+                                    text="Reset All Ships"/>
+                        </HBox>
+
+                        <!-- Left side ship labels area-->
+                        <VBox fx:id="leftSouthArea" id="leftSouthArea" alignment="CENTER" prefHeight="86.0" prefWidth="600.0"
+                              GridPane.rowIndex="3">
+                            <GridPane.margin>
+                                <Insets/>
+                            </GridPane.margin>
+                            <padding>
+                                <Insets left="25.0" right="25.0"/>
+                            </padding>
+                        </VBox>
+                    </GridPane>
+                </left>
+                <!-- Close left side of main game screen-->
+
+                <!-- Right side of main game screen-->
+                <right>
+                    <!-- Settings for entire right side of screen -->
+                    <!-- Dimensions and alignment-->
+                    <GridPane prefHeight="719.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+                        <!-- Constraints of grid layout areas-->
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                            <RowConstraints minHeight="10.0" prefHeight="240.0" vgrow="SOMETIMES"/>
+                        </rowConstraints>
+
+                        <!-- Right board area-->
+                        <!-- Board dimensions and alignment-->
+                        <Pane fx:id="rightBoard" prefHeight="200.0" prefWidth="600.0" GridPane.halignment="CENTER"
+                              GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER"
+                              GridPane.vgrow="ALWAYS">
+                            <!-- Board margin-->
+                            <GridPane.margin>
+                                <Insets left="65.0"/>
+                            </GridPane.margin>
+                        </Pane>
+
+                        <!-- Right side header settings-->
+                        <VBox alignment="CENTER" prefHeight="68.0" prefWidth="600.0">
+                            <padding>
+                                <Insets top="4" bottom="5.0"/>
+                            </padding>
+                            <Label id="computerSideHeader" alignment="CENTER" prefHeight="17.0" prefWidth="600.0"
+                                   text="Computer Side">
+                                <font>
+                                    <Font size="20.0"/>
+                                </font>
+                            </Label>
+                        </VBox>
+
+                        <!-- Right side ship labels area-->
+                        <VBox fx:id="rightSouthArea" id="rightSouthArea" alignment="CENTER" prefHeight="86.0" prefWidth="600.0"
+                              GridPane.rowIndex="3">
+                            <GridPane.margin>
+                                <Insets/>
+                            </GridPane.margin>
+                            <padding>
+                                <Insets left="25.0" right="25.0"/>
+                            </padding>
+                        </VBox>
+                    </GridPane>
+                </right>
+                <!-- Close right side of main game screen-->
+            </BorderPane>
+        </AnchorPane>
+        <!--********************Close main game screen layout********************-->
+
+        <!--**************************Main menu layout***************************-->
+        <VBox fx:id="mainMenuArea" id="mainMenuArea" prefHeight="56.0" prefWidth="1200.0" spacing="50"  visible="false"
+              alignment="CENTER">
+
+            <!-- Main menu header-->
+            <Label fx:id="mainLabel" id="mainLabel" alignment="CENTER" prefHeight="17.0" prefWidth="1200.0" text="BATTLESHIPS">
+                <font>
+                    <Font size="30.0"/>
+                </font>
+            </Label>
+
+            <!-- New game button-->
+            <Button mnemonicParsing="false" onAction="#newGame" prefHeight="100.0"
+                    prefWidth="350.0" text="New Game">
+            </Button>
+
+            <!-- Quit game button-->
+            <Button mnemonicParsing="false" onAction="#quitButton" prefHeight="100.0" prefWidth="350.0" text="Quit">
+            </Button>
+        </VBox>
+        <!--**********************Close main menu layout*************************-->
+
+        <!--****************Game start countdown screen layout*******************-->
+        <VBox fx:id="countDownArea" id="countDownArea" prefHeight="56.0" prefWidth="1200.0" spacing="50" visible="false"
+              StackPane.alignment="CENTER" alignment="CENTER">
+
+            <!-- Countdown label settings-->
+            <Label fx:id="countDownLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0"
+                   prefWidth="1200.0" text="READY" textAlignment="CENTER" textFill="WHITE">
+                <font>
+                    <Font size="140.0"/>
+                </font>
+            </Label>
+        </VBox>
+        <!--*************Close game start countdown screen layout***************-->
+
+    </StackPane><!--Close stack pane-->
+</VBox><!--Close main area box-->
+

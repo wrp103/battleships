@@ -1,0 +1,83 @@
+/********************************************************************************
+ * Author: 1816477                                                              *
+ * Date: Dec 2020                                                               *
+ * Assignment: Element 011 Battleships Game                                     *
+ * Description: This CSS file modifies the visuals of the FXML objects.         *
+ ********************************************************************************/
+
+/*********Styling for main menu area*********/
+
+#mainMenuArea {
+
+    -fx-background-color: BLUE;
+}
+
+/*Main menu buttons*/
+#mainMenuArea .button {
+
+    -fx-font-size: 40;
+    -fx-font-weight: bold;
+    -fx-font-family: Verdana;
+}
+
+/*Main menu header*/
+#mainLabel {
+
+    -fx-text-fill: white;
+    -fx-font-size: 100;
+    -fx-font-weight: bold;
+    -fx-font-family: Verdana;
+}
+
+/*********Styling for main gameplay area*********/
+
+/* general left side styling */
+#leftSide {
+
+    -fx-border-width: 3;
+    -fx-border-style: hidden solid hidden hidden;
+    -fx-border-color: red;
+}
+
+/* both sides header styling */
+#playerSideHeader, #computerSideHeader {
+
+    -fx-font-size: 28;
+    -fx-font-weight: bold;
+    -fx-font-family: Calibri;
+}
+
+/* ship label area styling */
+#rightSouthArea, #leftSouthArea {
+
+    -fx-font-size: 24;
+    -fx-font-family: Arial;
+}
+
+/* ship label styling */
+#rightSouthArea .label, #leftSouthArea .label {
+
+    -fx-background-color: BLUE;
+    -fx-padding: 0;
+    -fx-border-color: black;
+    -fx-border-style: solid;
+    -fx-text-fill: white;
+    -fx-min-height: 30;
+    -fx-min-width: 250;
+
+}
+
+/* left side buttons styling */
+#buttonArea .button {
+
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+    -fx-font-family: Calibri;
+}
+
+/*********Styling for countdown area*********/
+
+#countDownArea {
+
+    -fx-background-color: rgba(0, 100, 100, 0.9);
+}
